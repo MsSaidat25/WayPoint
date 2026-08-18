@@ -1,11 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Search</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
     <h1>Search trails</h1>
     <form method="get" action="{% url 'search' %}">
         <input type="text" name="q" value="{{ q }}">
@@ -16,5 +11,4 @@
     {% else %}
         <p>Enter a search term above.</p>
     {% endif %}
-</body>
-</html>
+{% endblock %}
