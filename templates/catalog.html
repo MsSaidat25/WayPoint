@@ -15,7 +15,7 @@
             <td>{{ forloop.counter }}</td>
             <td>{{ trail.name }}</td>
             <td>{{ trail.distance|floatformat:1 }}</td>
-            <td>{{ trail.elevation }}</td>
+            <td>{{ trail.elevation_gain }}</td>
             <td>
                 {% if not trail.is_open %}
                     <strong>CLOSED</strong>
