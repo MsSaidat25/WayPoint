@@ -27,3 +27,11 @@ def catalog(request):
     # only open trails, ordered by distance, straight from the DB (WP-605)
     trails = Trail.objects.filter(is_open=True).order_by("distance_km")
     return render(request, "catalog.html", {"trails": trails})
+
+
+def park_trails(request, park_id):
+    # cross-relation query: all trails belonging to one park (WP-705)
+    from .models import Park
+    park = Park.objects.get(id=park_id)
+    trails = park.trails.all().order_by("distance_km")
+    return render(request, "catalog.html", {"trails": trails})
