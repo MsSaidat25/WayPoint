@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Trail
 
-# Register your models here.
+
+@admin.register(Trail)
+class TrailAdmin(admin.ModelAdmin):
+    list_display = ("name", "distance_km", "difficulty", "is_open", "added")
+    search_fields = ("name", "difficulty")
