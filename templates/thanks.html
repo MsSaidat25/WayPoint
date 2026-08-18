@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thank you</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Thanks, {{ name }}!</h1>
+    <p>We received your report on {{ trail }}.</p>
+    <p>Your note: {{ note }}</p>
+    <a href="{% url 'home' %}">Back home</a>
+</body>
+</html>
