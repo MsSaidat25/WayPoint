@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Trail
 
 
@@ -32,6 +32,6 @@ def catalog(request):
 def park_trails(request, park_id):
     # cross-relation query: all trails belonging to one park (WP-705)
     from .models import Park
-    park = Park.objects.get(id=park_id)
+    park = get_object_or_404(Park, id=park_id)
     trails = park.trails.all().order_by("distance_km")
     return render(request, "catalog.html", {"trails": trails})
