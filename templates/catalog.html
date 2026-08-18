@@ -6,6 +6,7 @@
         <tr>
             <th>#</th>
             <th>Name</th>
+            <th>Park</th>
             <th>Distance (km)</th>
             <th>Elevation (m)</th>
             <th>Status</th>
@@ -14,6 +15,7 @@
         <tr>
             <td>{{ forloop.counter }}</td>
             <td>{{ trail.name }}</td>
+            <td>{{ trail.park.name|default:"Unassigned" }}</td>
             <td>{{ trail.distance|floatformat:1 }}</td>
             <td>{{ trail.elevation_gain }}</td>
             <td>
